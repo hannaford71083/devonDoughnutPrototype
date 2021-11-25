@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+@use '~@angular/material' as mat;
+
+@font-face {
+    font-display: swap;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url("../src/assets/fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url("../src/assets/fonts/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url("../src/assets/fonts/open-sans-v18-latin-regular.woff2");
+}
+
+@include mat.core();
+
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
+
+
+body {
+    //background-color: #ffffff;
+    font-family: "Roboto";  
+    font-weight: 400;
+    //color: #666666;  
+}
+
