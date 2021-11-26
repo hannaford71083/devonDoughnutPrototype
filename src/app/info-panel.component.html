@@ -1,0 +1,107 @@
+
+
+<div>
+    <h2><span>Domain: </span>{{domainName}}</h2>
+    <div>
+        <span *ngIf="showCeiling">Ecological Ceiling</span>
+        <span *ngIf="showFoundation" >Social Foundation</span>
+    </div>
+    <div class="black-border light-green-bg" >
+        <h3>Contextualised Indicator</h3>
+        <p>{{description}}</p>
+    </div>
+
+    <img src="" alt="Arrows to citizen and policy makes" />
+    
+    <mat-grid-list cols="2" rowHeight="2:1" >
+        <mat-grid-tile [colspan]="1" >
+            <div>
+                <h2>Citizen</h2>
+                <div class="black-border">
+                    <h3>Twin Track</h3>
+                    <p>{{citizenDescription}}</p>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" >
+            <div >
+                <h2>Policy Maker</h2>
+                <div class="black-border light-green-bg" >
+                    <h3>Twin Track</h3>
+                    <p>{{policymakerDescription}}</p>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" >
+            <div>
+                <div class="black-border">
+                    <h3>Pathway for Action</h3>
+                    <p>{{citizenAction}}</p>
+                </div>
+            </div>            
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" >
+            <div>
+                <div class="black-border light-green-bg">
+                    <h3>Pathway for Action</h3>
+                    <p>{{policymakerAction}}</p>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="3" rowHeight="2:1" >
+        <mat-grid-tile [colspan]="1" >
+            <div class="black-border">
+                <h2>{{domainName}}</h2>
+                <img src="" alt="Image of a graph innit" />
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" >
+            <div class="black-border" style="width:100%;">
+                <h2>Whos Tracking it</h2>
+                <p>
+                    <br/>Bioregional Learning Centre
+                    <br/>Devon Climate Emergency
+                    <br/>Apricot Centre
+                    <br/>Devon Heritage Centre, Exeter
+                    <br/>Climate Action Shop, Ilfracombe
+                    <br/>North Devon Bioshere
+                    <br/>Local Nature Partnership
+                    <br/>Oats Organic Shop, Brixham
+                    <br/>POP+ Plymouth
+                    <br/>E-cocars community car share
+                    <br/>St John’s Church, Bridgetown
+                    <br/>Friends of the River Dart
+                    <br/>Local Spark, Torbay
+                    <br/>Brimpt’s Farm, Dartmoor
+                    <br/>Slapton Ley Field Study Centre
+                    <br/>Brixham Harbour Master
+                    <br/>Applegate
+                    <br/>South Devon College
+                    <br/>Churston Ferrers Grammar School
+                </p>
+                <!-- <p>Bioregional Learning Centre</p>
+                <p>Devon Climate Emergency</p>         
+                <p>Apricot Centre</p>
+                <p>Devon Heritage Centre, Exeter</p>               
+                <p>Climate Action Shop, Ilfracombe</p>
+                <p>North Devon Bioshere</p>      
+                <p>Local Nature Partnership</p>          
+                <p>Oats Organic Shop, Brixham</p>            
+                <p>POP+ Plymouth</p>
+                <p>E-cocars community car share</p>              
+                <p>St John’s Church, Bridgetown</p>              
+                <p>Friends of the River Dart</p>           
+                <p>Local Spark, Torbay</p>     
+                <p>Brimpt’s Farm, Dartmoor</p>         
+                <p>Slapton Ley Field Study Centre</p>                
+                <p>Brixham Harbour Master</p>        
+                <p>Applegate</p>
+                <p>South Devon College</p>     
+                <p>Churston Ferrers Grammar School</p> -->
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+</div>
