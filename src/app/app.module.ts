@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { InfoPanelComponent } from './info-panel.component';
+import { DoughnutDiagramComponent } from './doughnut-diagram.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InfoPanelComponent
+    InfoPanelComponent,
+    DoughnutDiagramComponent
   ],
   imports: [
     BrowserModule,

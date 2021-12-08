@@ -1,17 +1,46 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Segment, ceilingOrFoundation } from './app.component';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { ceilingOrFoundation } from './shared-classes-interfaces';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { Segment } from './shared-classes-interfaces';
+// import { MatStepper } from '@angular/material';
+
 
 @Component({
   selector: 'info-panel',
   templateUrl: './info-panel.component.html',
-  styleUrls: ['./info-panel.component.scss']
+  styleUrls: ['./info-panel.component.scss'],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: {displayDefaultIndicatorType: false },
+    },
+  ],
 })
 export class InfoPanelComponent implements OnInit {
 
+  @ViewChild('stepper') private myStepper : any;
 
   @Input() set segment(segment : Segment | null){
-    this.populateInfoPanel(segment);
+    if(!this.domainLock){
+      // this.setTwinTrackIndicatorVisibility(false);
+      this.myStepper.reset();
+      this.populateInfoPanel(segment);
+    }
   }
+  @Input() set onSegmentSelect(visibility : boolean | null ){
+    this.segmentSelected(visibility);
+    // @Input() set twinTrackIndicatorVisibility(visibility : boolean | null ){
+    // this.setTwinTrackIndicatorVisibility(visibility == null ? null : true);
+    this.domainLock = true;
+    let that = this;
+    setTimeout(function(){
+      that.domainLock = false;
+    }, 3000);
+  }
+
+
+
+  domainLock : boolean = false;
   domainName : string = "";
   description : string = "";
   citizenDescription : string = "";
@@ -22,15 +51,40 @@ export class InfoPanelComponent implements OnInit {
   showCeiling : boolean = false;
   showFoundation : boolean = false;
 
-  constructor() { }
+  // domainIndicatorMessageVisibility : boolean = true;
+  // policymakerDescriptionVisible: boolean = false;
+  // citizenDescriptionVisible: boolean = false;
+  // pathwayForActionButtonVisibility: boolean = false;
+  // citizenActionVisible: boolean = false;
+  // policymakerActionVisible: boolean = false;
+  // showHowWereDoingButtonVisibility: boolean = false;
+  // dataSectionVisible: boolean = false;
+
+  showDomainMessage: boolean = false;
+
+  isLinear = false;
+
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
-
     //console.log("--->>>> ", this.test);
   }
 
+  whatsDomain(visible : boolean){
+    console.log("Show tooltip ", visible );
+    this.showDomainMessage = visible;
+  }
+
+  segmentSelected(visibility : boolean | null){
+    console.log("segmentSelected ", visibility);
+    console.log("stepper: ", this.myStepper);
+    this.myStepper.next();
+    // this.stepper.selectedIndex = index;
+  }
+
   populateInfoPanel(segment : Segment | null){
-    console.log("Updated ", segment?.cssId);
     if(segment !== null){
       this.domainName = segment.label;
       this.description = segment.description;
@@ -47,6 +101,44 @@ export class InfoPanelComponent implements OnInit {
       }
     }
   }
+
+
+  // showHowWereDoing(){
+  //   this.dataSectionVisible = true;
+  //   this.showHowWereDoingButtonVisibility = false;
+  // }
+
+  // showPathwaystoAction(){
+  //   console.log("showPathwaystoAction");
+  //   // this.citizenActionVisible = true;
+  //   // this.policymakerActionVisible = true;
+    
+  //   // this.pathwayForActionButtonVisibility = false;
+  //   // this.showHowWereDoingButtonVisibility = true;
+  // }
+
+  // setTwinTrackIndicatorVisibility(visibility : boolean | null){
+  //   // if(visibility != null){
+  //   //   console.log("setTwinTrackIndicatorVisibility");
+  //   //   this.policymakerDescriptionVisible = visibility;
+  //   //   this.citizenDescriptionVisible = visibility;
+  //   //   if(visibility == true){
+  //   //     this.domainIndicatorMessageVisibility = false;
+  //   //     this.pathwayForActionButtonVisibility = true;
+  //   //   }
+  //   //   else{
+  //   //     this.domainIndicatorMessageVisibility = true;
+  //   //     this.pathwayForActionButtonVisibility = false;
+  //   //     this.citizenActionVisible = false;
+  //   //   }
+  //   // }
+  // }
+
+  // segmentHighlighted(visibility : boolean | null){
+
+  // }
+
+
 
 
 }
