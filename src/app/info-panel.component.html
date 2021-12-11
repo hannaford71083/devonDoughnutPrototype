@@ -1,20 +1,12 @@
 
-
 <div>
-    <!-- <p>domainLock: '{{domainLock}}'</p> -->
-    
-    <!-- <mat-tab-group mat-align-tabs="start">
-        <mat-tab label="First">Content 1</mat-tab>
-        <mat-tab label="Second">Content 2</mat-tab>
-        <mat-tab label="Third">Content 3</mat-tab>
-    </mat-tab-group> -->
 
-    <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-    </button> -->
     <div class="white-box">
-        <div class="tooltip-trigger" (mouseenter)="whatsDomain(true)" (mouseleave)="whatsDomain(false)">What's a domain?</div>
-        <div class="tooltip-message" *ngIf="showDomainMessage"  >There are 10 domains, or segments, that relate to the planet's Ecological Ceiling–customized to our landscape and climate, and 12 segments indicating Devon's Social Foundation–the basics we need to survive or thrive. Red shows where we are falling short and green where we're doing ok.</div>
+        <tooltip 
+            style="right: 10px;"
+            label="What's a domain?"
+            message="There are 10 domains, or segments, that relate to the planet's Ecological Ceiling–customized to our landscape and climate, and 12 segments indicating Devon's Social Foundation–the basics we need to survive or thrive. Red shows where we are falling short and green where we're doing ok."
+        ></tooltip> 
         <h2><span class="header-label">Domain: <br></span>{{domainName}}</h2>
         <div class="ceiling-foundation-container">
             <span  [ngClass]="{'disable': showFoundation == true}" >Ecological Ceiling</span>
@@ -22,124 +14,168 @@
         </div>
     </div>
 
-
-    <!-- <div class="full-width pos-relative" *ngIf="domainIndicatorMessageVisibility" >
-        <img class="twin-track-arrows" src="../assets/images/twin-track-arrow.PNG" alt="Arrows to citizen and policy makes" />
-        <div class="tooltip-trigger">What are twin track indicators?</div>
-        <div class="message-box">
-            Click domain to show twin track indicators
-        </div>
-    </div> -->
-
-
-
     <mat-stepper [linear]="isLinear"  #stepper>
 
         <mat-step label="Contextualised Indicator" completed="false"  state="phone" >
-            <div class="grey-box" >
-                <div class="tooltip-trigger">What's a contextualised indicator?</div>
-                <h3>Contextualised Indicator</h3>
-                <p>{{description}}</p>
+            <div class="pos-relative">
+                <tooltip 
+                    label="What is an overall indicator?"
+                    message="Our domains and indicators are 'contextualised', which means they make sense in relation to Devon's ecological and social landscape and what we know about how things work here. Overall indicators are the overarching ways in which commitment to revitalization can be measured."
+                ></tooltip> 
+                <h2>Overall Indicator:</h2>
+                <div class="grey-box" >
+                    <p>{{description}}</p>
+                </div>
+                <div class="button-container">
+                    <button mat-stroked-button disabled>Overall Indicator</button>&nbsp;
+                    <button mat-raised-button matStepperNext color="primary">Twin Track Measures</button>&nbsp;
+                    <button mat-raised-button (click)="goToPathway()" color="primary">Pathways for Action</button>&nbsp;
+                    <button mat-raised-button (click)="goToShowAll()" color="primary" >Show All</button>
+                </div>
             </div>
-            <button mat-button matStepperNext>Show Twin Track Indicators</button>
         </mat-step>
 
         <mat-step  label="Twin Track Indicators"  state="phone" completed="false" >
             <div class="row">
+                <div class="full-width pos-relative">
+                    <tooltip 
+                        label="What are twin track measures?"
+                        message="Because citizens and policy makers work in different ways the Devon Doughnut has two tracks. The citizen track suggests scenarios that citizens can research, gather data on and measure that will provide revealing insights into the overall indicator. The policy maker track works in the same way although the scenarios lean more to being informed by the kind of data readily available to institutions and policy makers. The two efforts should run in parallel."
+                    ></tooltip> 
+                    <h2 >Twin Tracks Measures:</h2>
+                </div>
                 <div class="half-col"  >
-                    <!-- *ngIf="citizenDescriptionVisible" -->
                     <div>
-                        <h2 class="text-align-centre" >Citizen</h2>
                         <div class="grey-box">
-                            <h3>Twin Track</h3>
+                            <h3>Citizen</h3>
                             <p>{{citizenDescription}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="half-col" >
-                    <!-- *ngIf="policymakerDescriptionVisible" -->
                     <div >
-                        <h2 class="text-align-centre" >Policy Maker</h2>
                         <div class="grey-box" >
-                            <h3>Twin Track</h3>
+                            <h3>Policy Maker</h3>
                             <p>{{policymakerDescription}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <button mat-button matStepperPrevious>Show Twin Track Indicators</button>
-            <button mat-button matStepperNext>Show Pathway for Action</button>
+            <div class="button-container">
+                <button mat-raised-button matStepperPrevious color="primary">Overall Indicator</button>&nbsp;
+                <button mat-stroked-button disabled>Twin Track Measures</button>&nbsp;
+                <button mat-raised-button matStepperNext color="primary">Pathways for Action</button>&nbsp;
+                <button mat-raised-button (click)="goToShowAll()" color="primary" >Show All</button>
+            </div>
         </mat-step>
 
         <mat-step label="Pathway for Action" state="chat" completed="false" >
-            <!-- <ng-template matStepLabel>Done</ng-template> -->
             <div class="row">
+
+                <div class="full-width pos-relative"> 
+                    <tooltip 
+                        label="What are pathways for action?"
+                        message="In effect, pathways are specific projects that citizens and policy makers can take on that will result in actions that will move the needle toward revitalization in a particular domain and demonstrate the interconnectedness of multiple domains."
+                    ></tooltip> 
+                    <h2  >Pathways for Action:</h2>
+                </div>
+
                 <div class="half-col" >
-                    <!-- *ngIf="citizenActionVisible" -->
                     <div>
-                        <h2 class="text-align-centre" >Citizen</h2>
                         <div class="grey-box">
-                            <h3>Pathway for Action</h3>
+                            <h3>Citizen</h3>
                             <p>{{citizenAction}}</p>
                         </div>
                     </div>            
                 </div>
                 <div class="half-col" >
-                    <!-- *ngIf="policymakerActionVisible" -->
                     <div>
-                        <h2 class="text-align-centre" >Policy Maker</h2>
                         <div class="grey-box">
-                            <h3>Pathway for Action</h3>
+                            <h3>Policy Maker</h3>
                             <p>{{policymakerAction}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <button mat-button matStepperPrevious>Show Pathway for Action</button>
-                <button mat-button matStepperNext >Show Progress Made</button>
+            <div class="button-container">
+                <button mat-raised-button (click)="goToOverallIndicator()" color="primary">Overall Indicator</button>&nbsp;
+                <button mat-raised-button matStepperPrevious color="primary">Twin Track Measures</button>&nbsp;
+                <button mat-stroked-button disabled>Pathway for Action</button>&nbsp;
+                <button mat-raised-button matStepperNext color="primary">Show All</button>&nbsp;
             </div>
         </mat-step>
 
-        <mat-step label="Progress Made" state="chat" completed="false" >
-            <div class="row"  >
-                <!-- *ngIf="dataSectionVisible" -->
-                <div class="two-third-col" >
-                    <div class="">
-                        <h2>{{domainName}}</h2>
-                        <img src="assets/images/twin-track-graph.PNG" alt="Image of a graph innit" />
+
+        <mat-step label="Show All" state="chat" completed="false" >
+            <div class="pos-relative">
+                <tooltip 
+                    label="What is an overall indicator?"
+                    message="Our domains and indicators are 'contextualised', which means they make sense in relation to Devon's ecological and social landscape and what we know about how things work here. Overall indicators are the overarching ways in which commitment to revitalization can be measured."
+                ></tooltip> 
+                <h2>Overall Indicator:</h2>
+                <div class="grey-box" >
+                    <p>{{description}}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="full-width pos-relative">
+                    <tooltip 
+                        label="What are twin track measures?"
+                        message="Because citizens and policy makers work in different ways the Devon Doughnut has two tracks. The citizen track suggests scenarios that citizens can research, gather data on and measure that will provide revealing insights into the overall indicator. The policy maker track works in the same way although the scenarios lean more to being informed by the kind of data readily available to institutions and policy makers. The two efforts should run in parallel."
+                    ></tooltip> 
+                    <h2 >Twin Tracks Measures:</h2>
+                </div>
+                <div class="half-col"  >
+                    <div>
+                        <div class="grey-box">
+                            <h3>Citizen</h3>
+                            <p>{{citizenDescription}}</p>
+                        </div>
                     </div>
                 </div>
-                <div class="one-third-col">
-                    <div class="">
-                        <h2>Whos Tracking it</h2>
-                        <p>
-                            <br/>Bioregional Learning Centre
-                            <br/>Devon Climate Emergency
-                            <br/>Apricot Centre
-                            <br/>Devon Heritage Centre, Exeter
-                            <br/>Climate Action Shop, Ilfracombe
-                            <br/>North Devon Bioshere
-                            <br/>Local Nature Partnership
-                            <br/>Oats Organic Shop, Brixham
-                            <br/>POP+ Plymouth
-                            <br/>E-cocars community car share
-                            <br/>St John’s Church, Bridgetown
-                            <br/>Friends of the River Dart
-                            <br/>Local Spark, Torbay
-                            <br/>Brimpt’s Farm, Dartmoor
-                            <br/>Slapton Ley Field Study Centre
-                            <br/>Brixham Harbour Master
-                            <br/>Applegate
-                            <br/>South Devon College
-                            <br/>Churston Ferrers Grammar School
-                        </p>
+                <div class="half-col" >
+                    <div >
+                        <div class="grey-box" >
+                            <h3>Policy Maker</h3>
+                            <p>{{policymakerDescription}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <button mat-button matStepperPrevious>Show Pathway for Action</button>
-                <button mat-button (click)="stepper.reset()">Back to start</button>
+
+            <div class="row">
+                <div class="full-width pos-relative"> 
+                    <tooltip 
+                        label="What are pathways for action?"
+                        message="In effect, pathways are specific projects that citizens and policy makers can take on that will result in actions that will move the needle toward revitalization in a particular domain and demonstrate the interconnectedness of multiple domains."
+                    ></tooltip> 
+                    <h2  >Pathways for Action:</h2>
+                </div>
+
+                <div class="half-col" >
+                    <div>
+                        <div class="grey-box">
+                            <h3>Citizen</h3>
+                            <p>{{citizenAction}}</p>
+                        </div>
+                    </div>            
+                </div>
+                <div class="half-col" >
+                    <div>
+                        <div class="grey-box">
+                            <h3>Policy Maker</h3>
+                            <p>{{policymakerAction}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button mat-raised-button (click)="goToOverallIndicator()" color="primary">Overall Indicator</button>&nbsp;
+                <button mat-raised-button (click)="goToTwinTrack()" color="primary">Twin Track Measures</button>&nbsp;
+                <button mat-raised-button matStepperPrevious color="primary">Pathway for Action</button>&nbsp;
+                <button mat-stroked-button disabled>Show All</button>
             </div>
         </mat-step>
 
@@ -153,38 +189,6 @@
         </ng-template>
         
     </mat-stepper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div>
-
-
-
-        <!-- <div class="full-width pos-relative" *ngIf="pathwayForActionButtonVisibility" >
-            <div class="tooltip-trigger">What are pathways for action?</div>
-            <button class="general-button" (click)="showPathwaystoAction()" >Click to show pathways for action</button>
-        </div> -->
-
-
-
-        <!-- <div class="row" *ngIf="showHowWereDoingButtonVisibility" >
-            <button class="general-button" (click)="showHowWereDoing()" >Click to see how we're doing</button>
-        </div> -->
-
-
-
-    </div>
-
 
     
 </div>

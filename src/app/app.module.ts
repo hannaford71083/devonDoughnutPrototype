@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { InfoPanelComponent } from './info-panel.component';
 import { DoughnutDiagramComponent } from './doughnut-diagram.component';
+import { TooltipComponent } from './tooltip.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InfoPanelComponent,
-    DoughnutDiagramComponent
+    DoughnutDiagramComponent,
+    TooltipComponent
   ],
   imports: [
     BrowserModule,

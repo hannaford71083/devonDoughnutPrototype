@@ -1,0 +1,5 @@
+
+<div class="tooltip-container">
+    <div class="tooltip-trigger" (mouseenter)="showMessage = true" (mouseleave)="showMessage = false">{{label}}</div>
+    <div class="tooltip-message" *ngIf="showMessage || overideShowMessage" >{{message}}</div>
+</div>

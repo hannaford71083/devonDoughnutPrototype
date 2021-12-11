@@ -1,34 +1,25 @@
-<nav>
-   <img class="devon-doughnut-logo" src="assets/images/devon-doughnut-logo.PNG" alt="Doughnut logo" />
-   <img class="nav-bar-links" src="assets/images/nav-bar-links.PNG" alt="placeholder image of highlighted links" />
-</nav>
-
 
 <router-outlet></router-outlet>
 
-
-<!-- <svg width="800px" id="kaledoSketch" viewBox="0 0 800 400" ></svg> -->
-
-<div>
-   <!-- rowHeight="2:1" -->
+<div class="text-align-centre">
+   
    <div class="half-col pos-relative" >
       <doughnut-diagram 
          [initSegments]="segments" 
          (segmentClicked)='onClickSegment($event)' 
-         (segmentHighlighted)='onHighlightSegment($event)'
          ></doughnut-diagram>
-      <!-- <img class="toolbox" src="assets/images/toolbox.PNG" alt="toolbox"/>    -->
    </div>
 
-   <div class="half-col text-align-centre" *ngIf="introScreenVisibility">
+   <!-- <div class="half-col text-align-centre" >
       <img class="intro-message" src="assets/images/welcom-to-doughnut-message.png" alt="welcome to Devon Doughnut - please rollover segment"/>   
    </div>
+   <div class="" style="color: red;position:relative;top:-50px;" *ngIf="introScreenVisibility">
+      <h2>Please select section to show details</h2>
+   </div> -->
 
-   <div class="half-col" *ngIf="!introScreenVisibility">
-      <info-panel [segment]="selectedSegment" 
-                  [onSegmentSelect]="segmentSelectTrigger"  ></info-panel>
+   <div class="half-col text-align-left" *ngIf="!introScreenVisibility">
+      <info-panel [segment]="selectedSegment" ></info-panel>
    </div>
-
 </div>
 
 

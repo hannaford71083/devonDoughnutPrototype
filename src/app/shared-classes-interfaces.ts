@@ -96,7 +96,8 @@ export enum SegmentEnum {
     orange = "cls-8",
     lightGrey = "cls-4",
     lightRed = "cls-6",
-    greyOut = "grey-out"
+    // greyOut = "grey-out",
+    highlightColour = "highlight-colour"
   }
 
   export interface ISegment{

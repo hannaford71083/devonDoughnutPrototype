@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { ceilingOrFoundation } from './shared-classes-interfaces';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { Segment } from './shared-classes-interfaces';
@@ -16,29 +16,26 @@ import { Segment } from './shared-classes-interfaces';
     },
   ],
 })
-export class InfoPanelComponent implements OnInit {
+export class InfoPanelComponent {
 
   @ViewChild('stepper') private myStepper : any;
 
   @Input() set segment(segment : Segment | null){
     if(!this.domainLock){
-      // this.setTwinTrackIndicatorVisibility(false);
-      this.myStepper.reset();
+      if(this.myStepper){
+        this.myStepper.reset();
+      }
       this.populateInfoPanel(segment);
     }
   }
   @Input() set onSegmentSelect(visibility : boolean | null ){
-    this.segmentSelected(visibility);
-    // @Input() set twinTrackIndicatorVisibility(visibility : boolean | null ){
-    // this.setTwinTrackIndicatorVisibility(visibility == null ? null : true);
+    // this.segmentSelected(visibility);
     this.domainLock = true;
     let that = this;
     setTimeout(function(){
       that.domainLock = false;
     }, 3000);
   }
-
-
 
   domainLock : boolean = false;
   domainName : string = "";
@@ -50,39 +47,28 @@ export class InfoPanelComponent implements OnInit {
   innerOutter : ceilingOrFoundation | null = null;
   showCeiling : boolean = false;
   showFoundation : boolean = false;
-
-  // domainIndicatorMessageVisibility : boolean = true;
-  // policymakerDescriptionVisible: boolean = false;
-  // citizenDescriptionVisible: boolean = false;
-  // pathwayForActionButtonVisibility: boolean = false;
-  // citizenActionVisible: boolean = false;
-  // policymakerActionVisible: boolean = false;
-  // showHowWereDoingButtonVisibility: boolean = false;
-  // dataSectionVisible: boolean = false;
-
-  showDomainMessage: boolean = false;
-
   isLinear = false;
 
   constructor() { 
     
   }
 
-  ngOnInit(): void {
-    //console.log("--->>>> ", this.test);
+  goToOverallIndicator(){
+    this.myStepper.selectedIndex = 0;
   }
 
-  whatsDomain(visible : boolean){
-    console.log("Show tooltip ", visible );
-    this.showDomainMessage = visible;
+  goToTwinTrack() : void {
+    this.myStepper.selectedIndex = 1;
   }
 
-  segmentSelected(visibility : boolean | null){
-    console.log("segmentSelected ", visibility);
-    console.log("stepper: ", this.myStepper);
-    this.myStepper.next();
-    // this.stepper.selectedIndex = index;
+  goToPathway() : void {
+    this.myStepper.selectedIndex = 2;
   }
+
+  goToShowAll(){
+    this.myStepper.selectedIndex = 3;
+  }
+
 
   populateInfoPanel(segment : Segment | null){
     if(segment !== null){
@@ -101,6 +87,7 @@ export class InfoPanelComponent implements OnInit {
       }
     }
   }
+
 
 
   // showHowWereDoing(){

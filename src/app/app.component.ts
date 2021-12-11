@@ -39,17 +39,21 @@ export class AppComponent {
     this.introScreenVisibility = false;
   }
 
-  onClickSegment(segment : SegmentEnum) {
-    console.log('parent seg click: ' + segment);
-    this.segmentSelectTrigger = !this.segmentSelectTrigger;
-  }
-
-  onHighlightSegment(segmentEnum : SegmentEnum | null){
+  onClickSegment(segmentEnum : SegmentEnum) {
+    // console.log('parent seg click: ' + segmentEnum);
+    // this.segmentSelectTrigger = !this.segmentSelectTrigger;
     let selectedSegment = this.segments.find((seg)=>{ return seg.segmentEnum == segmentEnum; })
     if(selectedSegment){
       this.populateInfoPanel(selectedSegment);
     }
   }
+
+  // onHighlightSegment(segmentEnum : SegmentEnum | null){
+  //   let selectedSegment = this.segments.find((seg)=>{ return seg.segmentEnum == segmentEnum; })
+  //   if(selectedSegment){
+  //     this.populateInfoPanel(selectedSegment);
+  //   }
+  // }
 
 }
 
