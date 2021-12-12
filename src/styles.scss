@@ -41,9 +41,6 @@ $theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($theme);
 
-// @import "~@angular/material/prebuilt-themes/purple-green.css";
-
-
 
 @font-face {
     font-display: swap;
@@ -96,19 +93,19 @@ body {
 h1{}
 h2{
     font-weight: 400;
-    font-size: 30px;
+    font-size: 2.2em;
     margin: 5px 0px;
 }
 h3{
     margin: 0px;
-    font-size: 14px;
+    font-size: 1em;
     color: rgb(104, 101, 100);;
     font-weight: 300;    
 }
 
 .header-label{
     font-weight: 400;
-    font-size: 24px;
+    font-size: 0.8em;
 }
 
 
@@ -123,9 +120,11 @@ h3{
 
 // doughnut diagram
 .doughnut-container{
+    width: 45%;
     transform: translateX(50%);
     transition: 1s transform;
     z-index: 1;
+    display: inline-block;
 }
 
 .doughnut-container.no-intro{
@@ -140,15 +139,24 @@ h3{
 
 //info panel
 .info-panel-container{
+    width: 10%;
     opacity: 0;
     transition: 3s opacity;
+    display: inline-block;
 }
 .info-panel-container.no-intro{
+    width: 55%;
     opacity: 1;
+    display: inline-block;
+    vertical-align: top;
+}
+
+info-panel{
+    font-size: 12px;
 }
 
 info-panel > div {
-    margin: 80px 50px 0px 50px;
+    margin: 50px 0px 0px 50px;
 }
 
 .twin-track-arrows{
@@ -169,6 +177,15 @@ info-panel > div {
 .info-panel-container .button-container button{
     margin-right: 5px;
     margin-bottom: 5px;
+}
+
+
+.to-fade-out{
+    transition: 0.3s opacity;
+    opacity: 1;
+}
+.js-fade-out{
+    opacity: 0;
 }
 
 .pos-relative{
@@ -238,7 +255,7 @@ info-panel > div {
     display: inline-block;
     box-shadow: 5px 5px 15px -6px #000000;
     font-family: Lato !important;
-    font-size: 16px !important;
+    font-size: 1.15em !important;
 }
 
 .row{
@@ -280,7 +297,7 @@ tooltip{
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 14px;
+    font-size: 1em;
     color: grey;
     font-style: italic;
     cursor: pointer;
@@ -290,7 +307,7 @@ tooltip{
     top: 40px;
     right: 15px;
     // width: 250px;
-    font-size: 14px;
+    font-size: 1em;
     color: grey;
     font-style: italic;
     cursor: pointer;

@@ -25,7 +25,12 @@ export class InfoPanelComponent {
       if(this.myStepper){
         this.myStepper.reset();
       }
-      this.populateInfoPanel(segment);
+      let that = this;
+      this.fadeOut = true;
+      setTimeout(function(){
+        
+        that.populateInfoPanel(segment);
+      }, 300);
     }
   }
   @Input() set onSegmentSelect(visibility : boolean | null ){
@@ -37,6 +42,7 @@ export class InfoPanelComponent {
     }, 3000);
   }
 
+  fadeOut : boolean = false;
   domainLock : boolean = false;
   domainName : string = "";
   description : string = "";
@@ -71,6 +77,7 @@ export class InfoPanelComponent {
 
 
   populateInfoPanel(segment : Segment | null){
+    this.fadeOut = false;
     if(segment !== null){
       this.domainName = segment.label;
       this.description = segment.description;

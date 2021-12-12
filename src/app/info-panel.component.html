@@ -7,8 +7,8 @@
             label="What's a domain?"
             message="There are 10 domains, or segments, that relate to the planet's Ecological Ceiling–customized to our landscape and climate, and 12 segments indicating Devon's Social Foundation–the basics we need to survive or thrive. Red shows where we are falling short and green where we're doing ok."
         ></tooltip> 
-        <h2><span class="header-label">Domain: <br></span>{{domainName}}</h2>
-        <div class="ceiling-foundation-container">
+        <h2 class="to-fade-out" [ngClass]="{'js-fade-out': fadeOut}" ><span class="header-label">Domain: <br></span>{{domainName}}</h2>
+        <div class="ceiling-foundation-container to-fade-out"  [ngClass]="{'js-fade-out': fadeOut}">
             <span  [ngClass]="{'disable': showFoundation == true}" >Ecological Ceiling</span>
             <span  [ngClass]="{'disable': showCeiling == true}" >&nbsp;&nbsp;Social Foundation</span>
         </div>
@@ -23,8 +23,8 @@
                     message="Our domains and indicators are 'contextualised', which means they make sense in relation to Devon's ecological and social landscape and what we know about how things work here. Overall indicators are the overarching ways in which commitment to revitalization can be measured."
                 ></tooltip> 
                 <h2>Overall Indicator:</h2>
-                <div class="grey-box" >
-                    <p>{{description}}</p>
+                <div class="grey-box " >
+                    <p class="to-fade-out" [ngClass]="{'js-fade-out': fadeOut}" >{{description}}</p>
                 </div>
                 <div class="button-container">
                     <button mat-stroked-button disabled>Overall Indicator</button>

@@ -3,7 +3,7 @@
 
 <div>
    
-   <div class="doughnut-container half-col pos-relative" [ngClass]="{'no-intro': !introScreenMode}">
+   <div class="doughnut-container pos-relative" [ngClass]="{'no-intro': !introScreenMode}">
       <doughnut-diagram 
          [initSegments]="segments" 
          (segmentClicked)='onClickSegment($event)' 
@@ -11,7 +11,7 @@
    </div>
 
    <div  
-     class="info-panel-container half-col text-align-left" 
+     class="info-panel-container text-align-left" 
      [ngClass]="{'no-intro': !introScreenMode}">
       <info-panel [segment]="selectedSegment" ></info-panel>
    </div>
