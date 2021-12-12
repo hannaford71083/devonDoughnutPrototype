@@ -8,13 +8,15 @@ import { MaterialModule } from './material';
 import { InfoPanelComponent } from './info-panel.component';
 import { DoughnutDiagramComponent } from './doughnut-diagram.component';
 import { TooltipComponent } from './tooltip.component';
+import { SlideNavButtonsComponent } from './slide-nav-buttons.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InfoPanelComponent,
     DoughnutDiagramComponent,
-    TooltipComponent
+    TooltipComponent,
+    SlideNavButtonsComponent
   ],
   imports: [
     BrowserModule,

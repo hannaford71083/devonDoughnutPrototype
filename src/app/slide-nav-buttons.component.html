@@ -1,0 +1,13 @@
+<div class="button-container">
+    <button mat-raised-button (click)="goTo(0)" *ngIf="raised(0)" color="primary">Overall Indicator</button>
+    <button mat-stroked-button disabled *ngIf="disabled(0)" >Overall Indicator</button>
+    
+    <button mat-raised-button (click)="goTo(1)" *ngIf="raised(1)" color="primary">Twin Track Measures</button>
+    <button mat-stroked-button disabled *ngIf="disabled(1)">Twin Track Measures</button>
+    
+    <button mat-raised-button (click)="goTo(2)" *ngIf="raised(2)" color="primary">Pathways for Action</button>
+    <button mat-stroked-button disabled *ngIf="disabled(2)">Pathways for Action</button>
+
+    <button mat-raised-button (click)="goTo(3)" *ngIf="raised(3)" color="primary" >Show All</button>
+    <button mat-stroked-button disabled *ngIf="disabled(3)">Show All</button>
+</div>

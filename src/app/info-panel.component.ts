@@ -24,6 +24,7 @@ export class InfoPanelComponent {
     if(!this.domainLock){
       if(this.myStepper){
         this.myStepper.reset();
+        this.resetTrigger = !this.resetTrigger;
       }
       let that = this;
       this.fadeOut = true;
@@ -42,6 +43,7 @@ export class InfoPanelComponent {
     }, 3000);
   }
 
+  resetTrigger : boolean = false;
   fadeOut : boolean = false;
   domainLock : boolean = false;
   domainName : string = "";
@@ -59,21 +61,11 @@ export class InfoPanelComponent {
     
   }
 
-  goToOverallIndicator(){
-    this.myStepper.selectedIndex = 0;
+  onIndexSelected(index : number){
+    this.myStepper.selectedIndex = index;
+    //alert("index : "+ index);
   }
 
-  goToTwinTrack() : void {
-    this.myStepper.selectedIndex = 1;
-  }
-
-  goToPathway() : void {
-    this.myStepper.selectedIndex = 2;
-  }
-
-  goToShowAll(){
-    this.myStepper.selectedIndex = 3;
-  }
 
 
   populateInfoPanel(segment : Segment | null){

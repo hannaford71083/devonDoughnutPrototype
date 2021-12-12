@@ -26,12 +26,6 @@
                 <div class="grey-box " >
                     <p class="to-fade-out" [ngClass]="{'js-fade-out': fadeOut}" >{{description}}</p>
                 </div>
-                <div class="button-container">
-                    <button mat-stroked-button disabled>Overall Indicator</button>
-                    <button mat-raised-button matStepperNext color="primary">Twin Track Measures</button>
-                    <button mat-raised-button (click)="goToPathway()" color="primary">Pathways for Action</button>
-                    <button mat-raised-button (click)="goToShowAll()" color="primary" >Show All</button>
-                </div>
             </div>
         </mat-step>
 
@@ -61,17 +55,10 @@
                     </div>
                 </div>
             </div>
-            <div class="button-container">
-                <button mat-raised-button matStepperPrevious color="primary">Overall Indicator</button>
-                <button mat-stroked-button disabled>Twin Track Measures</button>
-                <button mat-raised-button matStepperNext color="primary">Pathways for Action</button>
-                <button mat-raised-button (click)="goToShowAll()" color="primary" >Show All</button>
-            </div>
         </mat-step>
 
         <mat-step label="Pathway for Action" state="chat" completed="false" >
             <div class="row">
-
                 <div class="full-width pos-relative"> 
                     <tooltip 
                         label="What are pathways for action?"
@@ -79,7 +66,6 @@
                     ></tooltip> 
                     <h2  >Pathways for Action:</h2>
                 </div>
-
                 <div class="half-col" >
                     <div>
                         <div class="grey-box">
@@ -97,12 +83,6 @@
                     </div>
                 </div>
             </div>
-            <div class="button-container">
-                <button mat-raised-button (click)="goToOverallIndicator()" color="primary">Overall Indicator</button>
-                <button mat-raised-button matStepperPrevious color="primary">Twin Track Measures</button>
-                <button mat-stroked-button disabled>Pathway for Action</button>
-                <button mat-raised-button matStepperNext color="primary">Show All</button>
-            </div>
         </mat-step>
 
 
@@ -117,7 +97,6 @@
                     <p>{{description}}</p>
                 </div>
             </div>
-
             <div class="row">
                 <div class="full-width pos-relative">
                     <tooltip 
@@ -143,7 +122,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="full-width pos-relative"> 
                     <tooltip 
@@ -170,13 +148,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="button-container">
-                <button mat-raised-button (click)="goToOverallIndicator()" color="primary">Overall Indicator</button>
-                <button mat-raised-button (click)="goToTwinTrack()" color="primary">Twin Track Measures</button>
-                <button mat-raised-button matStepperPrevious color="primary">Pathway for Action</button>
-                <button mat-stroked-button disabled>Show All</button>
-            </div>
         </mat-step>
 
 
@@ -190,5 +161,7 @@
         
     </mat-stepper>
 
+    <slide-nav-buttons (indexSelected)='onIndexSelected($event)' [reset]="resetTrigger" ></slide-nav-buttons>
+    
     
 </div>
