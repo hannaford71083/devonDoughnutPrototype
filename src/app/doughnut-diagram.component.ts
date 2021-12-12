@@ -12,6 +12,9 @@ export class DoughnutDiagramComponent {
   
   segments : SvgSegment[] = [];
   highlightedSegment : SegmentEnum | null = null;
+  viewBoxOut : string = "700 400 800 800";
+  viewBoxIn : string = "920 550 440 460";
+  viewBox : string = this.viewBoxOut;
 
   @Input() set initSegments(segments : ISegment[] | null){
     if(segments !== null){
@@ -27,6 +30,15 @@ export class DoughnutDiagramComponent {
 
   constructor() { 
     const s = Snap('#doughnut');    
+  }
+
+  zoomIn(){
+    const s = Snap('#doughnut');   
+    s.attr({viewBox: this.viewBoxIn})
+  }
+  zoomOut(){
+    const s = Snap('#doughnut');   
+    s.attr({viewBox: this.viewBoxOut})
   }
 
   highlightSegment(segmentIn : SegmentEnum | null){
