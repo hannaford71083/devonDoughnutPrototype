@@ -1,25 +1,21 @@
 
 <router-outlet></router-outlet>
 
-<div class="text-align-centre">
+<div>
    
-   <div class="half-col pos-relative" >
+   <div class="doughnut-container half-col pos-relative" [ngClass]="{'no-intro': !introScreenMode}">
       <doughnut-diagram 
          [initSegments]="segments" 
          (segmentClicked)='onClickSegment($event)' 
          ></doughnut-diagram>
    </div>
 
-   <!-- <div class="half-col text-align-centre" >
-      <img class="intro-message" src="assets/images/welcom-to-doughnut-message.png" alt="welcome to Devon Doughnut - please rollover segment"/>   
-   </div>
-   <div class="" style="color: red;position:relative;top:-50px;" *ngIf="introScreenVisibility">
-      <h2>Please select section to show details</h2>
-   </div> -->
-
-   <div class="half-col text-align-left" *ngIf="!introScreenVisibility">
+   <div  
+     class="info-panel-container half-col text-align-left" 
+     [ngClass]="{'no-intro': !introScreenMode}">
       <info-panel [segment]="selectedSegment" ></info-panel>
    </div>
+
 </div>
 
 

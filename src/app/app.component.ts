@@ -19,7 +19,7 @@ export class AppComponent {
   highlightedSegment : SegmentEnum | null = null;
   selectedSegment : Segment | null = null;
   segmentSelectTrigger : boolean | null = null;
-  introScreenVisibility = true;
+  introScreenMode = true;
   generalService : GeneralService;
 
   constructor(generalService : GeneralService){ 
@@ -36,7 +36,7 @@ export class AppComponent {
 
   populateInfoPanel(segment : Segment){
     this.selectedSegment = segment;
-    this.introScreenVisibility = false;
+    this.introScreenMode = false;
   }
 
   onClickSegment(segmentEnum : SegmentEnum) {

@@ -120,21 +120,16 @@ h3{
     display: none !important;
 }
 
-//Nav
-nav{
-    width:100%;
-    height:60px;
-    background-color: #CCCCCC;
+
+// doughnut diagram
+.doughnut-container{
+    transform: translateX(50%);
+    transition: 1s transform;
+    z-index: 1;
 }
-.devon-doughnut-logo{
-    height:50px;
-    padding: 5px;
-    padding-left: 40px;
-}
-.nav-bar-links{
-    height:50px;
-    padding-bottom: 5px;
-    padding-left: 60px;
+
+.doughnut-container.no-intro{
+    transform: translateX(0%);
 }
 
 // intro message
@@ -144,6 +139,14 @@ nav{
 }
 
 //info panel
+.info-panel-container{
+    opacity: 0;
+    transition: 3s opacity;
+}
+.info-panel-container.no-intro{
+    opacity: 1;
+}
+
 info-panel > div {
     margin: 80px 50px 0px 50px;
 }
@@ -163,6 +166,11 @@ info-panel > div {
 .button-container{
     padding: 20px 0px;
 }
+.info-panel-container .button-container button{
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
 .pos-relative{
     position: relative;
 }
