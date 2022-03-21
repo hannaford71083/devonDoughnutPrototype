@@ -35,15 +35,15 @@ export class GeneralService {
           ceilingOrFoundation.ceiling, 
           powerLevel.up2,
           "coast",
-          "Proportion of sectors/ companies/groups/ individuals in Devon demonstrating commitment to reducing plastic pollution",
+          "Proportion of seabed in Devon managed for ecosystem health, biodiversity, and local marine livelihoods",
           { 
-            description: "Proportion of primary schools who teach children about the 5 Rs: ‘refuse, reduce, reuse, recycle, rot’ ", 
-            action:"People responsible for doing household shopping make a determined decision to either buy unpackaged fruit and veg, or take containers to shops, or unwrap cellophane wrapped fruit and veg in supermarkets and leave the packaging behind", 
+            description: "Number of Devon volunteers actively involved in looking after sea life, with particular reference to sea grass, kelp and sand eels", 
+            action:"Citizens join a Community Supported Fishery (e.g. Sole of Discretion) to support the livelihoods of local fishers and in their monitoring the health of inshore marine ecosystems", 
             data: null
           },
           { 
-            description: "Proportion of Devon’s shops (e.g. supermarkets, chemists and corner shops) who are no longer selling obviously problematic products like wet wipes and other single-use plastics  but offering non-plastic alternatives", 
-            action:"Waste management companies, business leaders, community organizations and policy makers partner to provide a free seminar series to review Devon’s waste system with the public, including an update on progress of the 'UK Plastics Pact' and promote compliance for the implementation of the Plastic Tax in April 2022", 
+            description: "Proportion of Devon’s seabed in a designated HPMA where no fishing is allowed", 
+            action:"Devon IFCA becomes involved, as do South Devon and Channel Shellfishermen, the Brixham and Torbay harbourmaster, with marine research institutions such as Plymouth Marine Lab, in determining how to achieve increase in HPMAs", 
             data: null
           },
         ),

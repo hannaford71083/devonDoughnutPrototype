@@ -21,6 +21,10 @@ export class AppComponent {
   segmentSelectTrigger : boolean | null = null;
   introScreenMode = true;
   generalService : GeneralService;
+  mobileMode = false;
+  breakpointCheckToggle : boolean = false;
+  showInfoPanel : boolean = true;
+
 
   constructor(generalService : GeneralService){ 
     this.generalService = generalService;
@@ -28,6 +32,10 @@ export class AppComponent {
 
   ngOnInit(){
     this.populateSegmentList();
+    // this.breakpointCheckToggle = true;
+    if(this.mobileMode){
+      this.introScreenMode = false;
+    }
   }
 
   populateSegmentList() {
@@ -37,23 +45,30 @@ export class AppComponent {
   populateInfoPanel(segment : Segment){
     this.selectedSegment = segment;
     this.introScreenMode = false;
+    this.showInfoPanel = true;
   }
 
   onClickSegment(segmentEnum : SegmentEnum) {
-    // console.log('parent seg click: ' + segmentEnum);
-    // this.segmentSelectTrigger = !this.segmentSelectTrigger;
     let selectedSegment = this.segments.find((seg)=>{ return seg.segmentEnum == segmentEnum; })
     if(selectedSegment){
       this.populateInfoPanel(selectedSegment);
     }
   }
 
-  // onHighlightSegment(segmentEnum : SegmentEnum | null){
-  //   let selectedSegment = this.segments.find((seg)=>{ return seg.segmentEnum == segmentEnum; })
-  //   if(selectedSegment){
-  //     this.populateInfoPanel(selectedSegment);
-  //   }
-  // }
+  onBreakpointChanged(breakpoint: string){
+    if (breakpoint == 'Small' || breakpoint == 'XSmall'){
+      this.mobileMode = true;
+    }
+    else{
+      this.mobileMode = false;
+    }
+  }
+
+  onBackToDiagramChanged(visibility : boolean){ 
+    this.showInfoPanel = false;
+  }
+
+
 
 }
 

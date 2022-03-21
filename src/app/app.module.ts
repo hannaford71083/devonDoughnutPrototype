@@ -9,6 +9,7 @@ import { InfoPanelComponent } from './info-panel.component';
 import { DoughnutDiagramComponent } from './doughnut-diagram.component';
 import { TooltipComponent } from './tooltip.component';
 import { SlideNavButtonsComponent } from './slide-nav-buttons.component';
+import { BrakePointObserverComponent } from './brake-point-observer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SlideNavButtonsComponent } from './slide-nav-buttons.component';
     InfoPanelComponent,
     DoughnutDiagramComponent,
     TooltipComponent,
-    SlideNavButtonsComponent
+    SlideNavButtonsComponent,
+    BrakePointObserverComponent
   ],
   imports: [
     BrowserModule,

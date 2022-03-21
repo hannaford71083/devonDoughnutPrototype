@@ -3,18 +3,18 @@
 
 <div>
    
-   <div class="doughnut-container pos-relative" [ngClass]="{'no-intro': !introScreenMode}">
+   <div class="doughnut-container pos-relative" [ngClass]="{'no-intro': !introScreenMode, 'mobile-mode': mobileMode}">
       <doughnut-diagram 
          [initSegments]="segments" 
          (segmentClicked)='onClickSegment($event)' 
          ></doughnut-diagram>
    </div>
 
-   <div  
-     class="info-panel-container text-align-left" 
-     [ngClass]="{'no-intro': !introScreenMode}">
-      <info-panel [segment]="selectedSegment" ></info-panel>
+   <div class="info-panel-container text-align-left" [ngClass]="{'no-intro': !introScreenMode, 'mobile-mode': mobileMode}">
+      <info-panel [segment]="selectedSegment" [mobileMode]="mobileMode" (backToDiagramChanged)='onBackToDiagramChanged($event)' *ngIf='showInfoPanel || !mobileMode' ></info-panel>
    </div>
+
+   <brake-point-observer (breakpointChanged)='onBreakpointChanged($event)' [breakpointRetreive]="breakpointCheckToggle"></brake-point-observer>  
 
 </div>
 

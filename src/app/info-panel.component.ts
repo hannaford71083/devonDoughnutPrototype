@@ -1,8 +1,7 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ceilingOrFoundation } from './shared-classes-interfaces';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { Segment } from './shared-classes-interfaces';
-// import { MatStepper } from '@angular/material';
 
 
 @Component({
@@ -12,13 +11,15 @@ import { Segment } from './shared-classes-interfaces';
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: {displayDefaultIndicatorType: false },
+      useValue: { displayDefaultIndicatorType: false },
     },
   ],
 })
 export class InfoPanelComponent {
 
   @ViewChild('stepper') private myStepper : any;
+
+  @Output() backToDiagramChanged = new EventEmitter<boolean>();
 
   @Input() set segment(segment : Segment | null){
     if(!this.domainLock){
@@ -29,20 +30,25 @@ export class InfoPanelComponent {
       let that = this;
       this.fadeOut = true;
       setTimeout(function(){
-        
         that.populateInfoPanel(segment);
       }, 300);
     }
   }
   @Input() set onSegmentSelect(visibility : boolean | null ){
-    // this.segmentSelected(visibility);
     this.domainLock = true;
     let that = this;
     setTimeout(function(){
       that.domainLock = false;
     }, 3000);
   }
+  @Input() set mobileMode(mob : boolean | undefined){
+    if(mob){
+      this._mobileMode = mob;
+    }
+  }
 
+  visible : boolean = false;
+  _mobileMode : boolean = false;
   resetTrigger : boolean = false;
   fadeOut : boolean = false;
   domainLock : boolean = false;
@@ -63,13 +69,12 @@ export class InfoPanelComponent {
 
   onIndexSelected(index : number){
     this.myStepper.selectedIndex = index;
-    //alert("index : "+ index);
   }
-
-
 
   populateInfoPanel(segment : Segment | null){
     this.fadeOut = false;
+    this.visible = true;
+
     if(segment !== null){
       this.domainName = segment.label;
       this.description = segment.description;
@@ -87,44 +92,10 @@ export class InfoPanelComponent {
     }
   }
 
-
-
-  // showHowWereDoing(){
-  //   this.dataSectionVisible = true;
-  //   this.showHowWereDoingButtonVisibility = false;
-  // }
-
-  // showPathwaystoAction(){
-  //   console.log("showPathwaystoAction");
-  //   // this.citizenActionVisible = true;
-  //   // this.policymakerActionVisible = true;
-    
-  //   // this.pathwayForActionButtonVisibility = false;
-  //   // this.showHowWereDoingButtonVisibility = true;
-  // }
-
-  // setTwinTrackIndicatorVisibility(visibility : boolean | null){
-  //   // if(visibility != null){
-  //   //   console.log("setTwinTrackIndicatorVisibility");
-  //   //   this.policymakerDescriptionVisible = visibility;
-  //   //   this.citizenDescriptionVisible = visibility;
-  //   //   if(visibility == true){
-  //   //     this.domainIndicatorMessageVisibility = false;
-  //   //     this.pathwayForActionButtonVisibility = true;
-  //   //   }
-  //   //   else{
-  //   //     this.domainIndicatorMessageVisibility = true;
-  //   //     this.pathwayForActionButtonVisibility = false;
-  //   //     this.citizenActionVisible = false;
-  //   //   }
-  //   // }
-  // }
-
-  // segmentHighlighted(visibility : boolean | null){
-
-  // }
-
-
+  backToDiagram(){
+    this.visible = false;
+    this.backToDiagramChanged.emit(this.visible);
+  }
 
 
 }

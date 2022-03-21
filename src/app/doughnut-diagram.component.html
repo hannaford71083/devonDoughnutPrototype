@@ -3,7 +3,7 @@
     id="doughnut"
     xmlns="http://www.w3.org/2000/svg" 
     xmlns:xlink="http://www.w3.org/1999/xlink" 
-    viewBox="700 400 800 800">
+    viewBox="700 400 850 820">
     <defs>
       <style>
         .cls-1,
@@ -771,12 +771,22 @@
     </g>
   </svg>
 
-<div class="button-container text-align-centre" style="margin-left: 60px;">
+<div class="zoom-controls" [ngClass]="{'zoom-in': zoomLevel == 'zoomIn' }" >
+
   <button mat-mini-fab color="primary" (click)="zoomIn()" aria-label="Example icon button with a menu icon">
     <mat-icon>zoom_in</mat-icon>
   </button>&nbsp;
 
-  <button mat-mini-fab color="primary" (click)="zoomOut()" aria-label="Example icon button with a menu icon">
+  <!-- <button mat-fab color="primary" (click)="zoomIn()" aria-label="zoom out">
+    <mat-icon>zoom_in</mat-icon>
+  </button>&nbsp; -->
+
+  <button mat-mini-fab color="primary" (click)="zoomOut()" aria-label="zoom in">
     <mat-icon>zoom_out</mat-icon>
   </button>
+
+  <!-- <button mat-fab color="primary" (click)="zoomOut()" aria-label="zoom in">
+    <mat-icon>zoom_out</mat-icon>
+  </button> -->
+
 </div>

@@ -13,8 +13,9 @@ export class DoughnutDiagramComponent {
   segments : SvgSegment[] = [];
   highlightedSegment : SegmentEnum | null = null;
   viewBoxOut : string = "700 400 800 800";
-  viewBoxIn : string = "920 550 440 460";
+  viewBoxIn : string = "890 550 500 460";
   viewBox : string = this.viewBoxOut;
+  zoomLevel : ZoomEnum = ZoomEnum.zoomOut;
 
   @Input() set initSegments(segments : ISegment[] | null){
     if(segments !== null){
@@ -34,11 +35,13 @@ export class DoughnutDiagramComponent {
 
   zoomIn(){
     const s = Snap('#doughnut');   
-    s.attr({viewBox: this.viewBoxIn})
+    s.attr({viewBox: this.viewBoxIn});
+    this.zoomLevel = ZoomEnum.zoomIn;
   }
   zoomOut(){
     const s = Snap('#doughnut');   
-    s.attr({viewBox: this.viewBoxOut})
+    s.attr({viewBox: this.viewBoxOut});
+    this.zoomLevel = ZoomEnum.zoomOut;
   }
 
   highlightSegment(segmentIn : SegmentEnum | null){
@@ -92,11 +95,13 @@ export class DoughnutDiagramComponent {
     }
   }
 
-
-
 }
 
 
+enum ZoomEnum {
+  zoomIn = 'zoomIn',
+  zoomOut = 'zoomOut'
+} 
 
 export  class SvgSegment implements ISegment {
   segmentEnum : SegmentEnum;

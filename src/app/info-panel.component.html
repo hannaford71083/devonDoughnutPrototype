@@ -2,12 +2,23 @@
 <div>
 
     <div class="white-box">
+
+        <div *ngIf="_mobileMode">
+            <button mat-icon-button color="primary" (click)="backToDiagram()" aria-label="Back To Diagram">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <p class="dis-inline">Back to Diagram</p>
+        </div>
+
         <tooltip 
             style="right: 10px;"
             label="What's a domain?"
             message="There are 10 domains, or segments, that relate to the planet's Ecological Ceiling–customized to our landscape and climate, and 12 segments indicating Devon's Social Foundation–the basics we need to survive or thrive. Red shows where we are falling short and green where we're doing ok."
-        ></tooltip> 
-        <h2 class="to-fade-out" [ngClass]="{'js-fade-out': fadeOut}" ><span class="header-label">Domain: <br></span>{{domainName}}</h2>
+        ></tooltip>
+        <div >
+            <span class="header-label">Domain: <br></span>
+            <h2 class="header-heading to-fade-out" [ngClass]="{'js-fade-out': fadeOut}" >{{domainName}}</h2>
+        </div>
         <div class="ceiling-foundation-container to-fade-out"  [ngClass]="{'js-fade-out': fadeOut}">
             <span  [ngClass]="{'disable': showFoundation == true}" >Ecological Ceiling</span>
             <span  [ngClass]="{'disable': showCeiling == true}" >&nbsp;&nbsp;Social Foundation</span>
@@ -17,13 +28,13 @@
     <mat-stepper [linear]="isLinear"  #stepper>
 
         <mat-step label="Contextualised Indicator" completed="false"  state="phone" >
-            <div class="pos-relative">
+            <div class="row pos-relative">
                 <tooltip 
                     label="What is an overall indicator?"
                     message="Our domains and indicators are 'contextualised', which means they make sense in relation to Devon's ecological and social landscape and what we know about how things work here. Overall indicators are the overarching ways in which commitment to revitalization can be measured."
                 ></tooltip> 
                 <h2>Overall Indicator:</h2>
-                <div class="grey-box " >
+                <div class="indicator-box grey-box" >
                     <p class="to-fade-out" [ngClass]="{'js-fade-out': fadeOut}" >{{description}}</p>
                 </div>
             </div>
@@ -36,7 +47,7 @@
                         label="What are twin track measures?"
                         message="Because citizens and policy makers work in different ways the Devon Doughnut has two tracks. The citizen track suggests scenarios that citizens can research, gather data on and measure that will provide revealing insights into the overall indicator. The policy maker track works in the same way although the scenarios lean more to being informed by the kind of data readily available to institutions and policy makers. The two efforts should run in parallel."
                     ></tooltip> 
-                    <h2 >Twin Tracks Measures:</h2>
+                    <h2 >Twin Track Measures:</h2>
                 </div>
                 <div class="half-col"  >
                     <div>
@@ -87,13 +98,13 @@
 
 
         <mat-step label="Show All" state="chat" completed="false" >
-            <div class="pos-relative">
+            <div class="row pos-relative">
                 <tooltip 
                     label="What is an overall indicator?"
                     message="Our domains and indicators are 'contextualised', which means they make sense in relation to Devon's ecological and social landscape and what we know about how things work here. Overall indicators are the overarching ways in which commitment to revitalization can be measured."
                 ></tooltip> 
                 <h2>Overall Indicator:</h2>
-                <div class="grey-box" >
+                <div class="indicator-box grey-box" >
                     <p>{{description}}</p>
                 </div>
             </div>
@@ -103,7 +114,7 @@
                         label="What are twin track measures?"
                         message="Because citizens and policy makers work in different ways the Devon Doughnut has two tracks. The citizen track suggests scenarios that citizens can research, gather data on and measure that will provide revealing insights into the overall indicator. The policy maker track works in the same way although the scenarios lean more to being informed by the kind of data readily available to institutions and policy makers. The two efforts should run in parallel."
                     ></tooltip> 
-                    <h2 >Twin Tracks Measures:</h2>
+                    <h2 >Twin Track Measures:</h2>
                 </div>
                 <div class="half-col"  >
                     <div>
@@ -162,6 +173,6 @@
     </mat-stepper>
 
     <slide-nav-buttons (indexSelected)='onIndexSelected($event)' [reset]="resetTrigger" ></slide-nav-buttons>
-    
-    
+
+
 </div>

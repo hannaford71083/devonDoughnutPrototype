@@ -93,22 +93,34 @@ body {
 h1{}
 h2{
     font-weight: 400;
-    font-size: 2.2em;
+    font-size: 1.8em;
     margin: 5px 0px;
+
 }
 h3{
     margin: 0px;
     font-size: 1em;
     color: rgb(104, 101, 100);;
-    font-weight: 300;    
+    font-weight: 300;   
+    margin-bottom: -5px;
+    margin-top: 5px; 
+}
+
+p{
+    font-size: 1em;
 }
 
 .header-label{
     font-weight: 400;
-    font-size: 0.8em;
+    font-size: 1.8em;
+    position: relative;
+    top: 5px;
 }
 
 
+.header-heading{
+    font-size: 2.2em;
+}
 
 
 //------------------------
@@ -127,11 +139,43 @@ h3{
     display: inline-block;
 }
 
+.doughnut-container.mobile-mode {
+    max-width: 600px;
+    transform: none;
+    transition: none;
+    margin: auto;
+    display: block;
+    width: 100%;
+}
+
+
+
 .doughnut-container.no-intro{
     transform: translateX(0%);
 }
 
-// intro message
+.zoom-controls{
+    display: inline-block;
+    padding: 12px;
+    background-color: #fff;
+    left: 50%;
+    position: relative;
+    bottom: 40px;
+    transform: translateX(-40px);
+}
+
+.zoom-controls mat-icon{
+    font-size: 35px;
+    position: relative;
+    left: -3px;
+    top: -4px;
+}
+
+.zoom-in {
+    left: 44%;
+    bottom: 0px;
+}
+
 .intro-message{
     width:80%;
     margin-top: 5%;
@@ -151,8 +195,22 @@ h3{
     vertical-align: top;
 }
 
+.info-panel-container.mobile-mode {
+    display: none;
+}
+
+.info-panel-container.mobile-mode.no-intro {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+    display: inline;
+}
+
+
 info-panel{
-    font-size: 12px;
+    font-size: 14px;
 }
 
 info-panel > div {
@@ -163,12 +221,20 @@ info-panel mat-stepper {
     min-height: 230px;
 }
 
-
-.twin-track-arrows{
-    width:96%;
-    padding-left: 20px;
-    margin-bottom: -20px;
+.info-panel-container .button-container button{
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
+
+.indicator-box.grey-box{
+    min-height: 70px;
+}
+
+// .twin-track-arrows{
+//     width:96%;
+//     padding-left: 20px;
+//     margin-bottom: -20px;
+// }
 
 .ceiling-foundation-container{
     padding: 0px ​0px 30px 0px;
@@ -182,13 +248,23 @@ slide-nav-buttons .button-container {
 }
 
 
+@media only screen and (max-width: 960px) {
+    info-panel > div {
+      margin: 0;
+      min-height: 100vh;
+    }
+    info-panel {
+        font-size: 12px;
+    }
+    slide-nav-buttons button {
+        font-size: 12px !important;
+    }
+}
+
+
 // ---------- Utility class -----------
 .button-container{
     padding: 20px 0px;
-}
-.info-panel-container .button-container button{
-    margin-right: 5px;
-    margin-bottom: 5px;
 }
 
 
@@ -203,6 +279,10 @@ slide-nav-buttons .button-container {
 .pos-relative{
     position: relative;
 }
+.dis-inline{
+    display: inline;
+}
+
 .disable{
     opacity:0.5;
 }
@@ -298,16 +378,16 @@ tooltip{
     display: inline;
     right: 0px;
     top: 0px;
-    width: 250px;
+    width: 350px;
 }
 
 .tooltip-container{
     position: relative;
-    width: 250px;
+    width: 350px;
 }
 .tooltip-trigger{
     position: absolute;
-    top: 15px;
+    top: 10px;
     right: 20px;
     font-size: 1em;
     color: grey;
@@ -318,7 +398,6 @@ tooltip{
     position: absolute;
     top: 40px;
     right: 15px;
-    // width: 250px;
     font-size: 1em;
     color: grey;
     font-style: italic;

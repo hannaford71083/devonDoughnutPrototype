@@ -21,7 +21,6 @@ export class SlideNavButtonsComponent implements OnInit {
   goTo(setIndex : number){
     this.index = setIndex;
     this.indexSelected.emit(setIndex);
-    // alert("Output this ---> " + setIndex);
   }
 
   raised(indexId: number){
