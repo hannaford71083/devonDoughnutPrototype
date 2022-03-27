@@ -221,6 +221,10 @@ info-panel mat-stepper {
     min-height: 230px;
 }
 
+info-panel .back-button {
+    margin-top: 8px;
+}
+
 .info-panel-container .button-container button{
     margin-right: 5px;
     margin-bottom: 5px;
@@ -253,10 +257,18 @@ slide-nav-buttons .button-container {
     slide-nav-buttons button {
         font-size: 12px !important;
     }
+    .info-panel-container .button-container{
+        padding-bottom: 50px;
+    }
+    .info-panel-container .grey-box{
+        padding: 1px 15px;
+    }
 }
 
 
 // ---------- Utility class -----------
+
+
 .button-container{
     padding: 20px 0px;
 }
@@ -342,6 +354,19 @@ slide-nav-buttons .button-container {
     box-shadow: 5px 5px 15px -6px #000000;
     font-family: Lato !important;
     font-size: 1.15em !important;
+}
+
+.mobile-only{
+    display: none !important;
+}
+
+@media only screen and (max-width: 960px) {
+    .desktop-only{
+        display: none !important;
+    }
+    .mobile-only{
+        display: inline !important;
+    }
 }
 
 .row{

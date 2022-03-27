@@ -10,7 +10,7 @@ export class TooltipComponent implements OnInit {
   @Input() label : string = "";
   @Input() message : string = "";
   @Input() overideShowMessage : boolean = false;
-  
+
   showMessage : boolean = false;
 
   constructor() { }

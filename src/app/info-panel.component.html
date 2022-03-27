@@ -1,15 +1,14 @@
 
 <div>
 
+    <div *ngIf="_mobileMode" class="white-box">
+        <button mat-raised-button (click)="backToDiagram()" color="primary" class="back-button" aria-label="Back To Diagram" >
+            <mat-icon>arrow_back</mat-icon>
+            &nbsp;Back to Diagram
+        </button>
+    </div>
+
     <div class="white-box">
-
-        <div *ngIf="_mobileMode">
-            <button mat-icon-button color="primary" (click)="backToDiagram()" aria-label="Back To Diagram">
-                <mat-icon>arrow_back</mat-icon>
-            </button>
-            <p class="dis-inline">Back to Diagram</p>
-        </div>
-
         <tooltip 
             style="right: 10px;"
             label="What's a domain?"
@@ -32,6 +31,7 @@
                 <tooltip 
                     label="What is an overall indicator?"
                     message="Our domains and indicators are 'contextualised', which means they make sense in relation to Devon's ecological and social landscape and what we know about how things work here. Overall indicators are the overarching ways in which commitment to revitalization can be measured."
+                    mobileMode="_mo"
                 ></tooltip> 
                 <h2>Overall Indicator:</h2>
                 <div class="indicator-box grey-box" >
