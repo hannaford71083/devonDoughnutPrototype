@@ -1,14 +1,5 @@
 declare var Snap: any;
 
-
-// export enum powerLevel {
-//     higher,
-//     high,
-//     above,
-//     below,
-//     lower
-// };
-
 export enum powerLevel {
   up5,
   up4,
@@ -22,10 +13,7 @@ export enum powerLevel {
   down4,
   down5
   };
-
-
-
-  
+ 
 export enum SegmentEnum {
     GreenhouseGasEmissions,
     CoastAndMarineHealth,
@@ -81,15 +69,6 @@ export enum SegmentEnum {
     }
   }  
 
-  
-  // export enum colourClass {
-  //   red = "cls-11",
-  //   green = "cls-9", //
-  //   lightGrey = "cls-10",
-  //   lightRed = "cls-8",
-  //   greyOut = "grey-out"
-  // }
-  
   export enum colourClass {
     red = "cls-5",
     green = "cls-7",

@@ -32,7 +32,6 @@ export class AppComponent {
 
   ngOnInit(){
     this.populateSegmentList();
-    // this.breakpointCheckToggle = true;
     if(this.mobileMode){
       this.introScreenMode = false;
     }
