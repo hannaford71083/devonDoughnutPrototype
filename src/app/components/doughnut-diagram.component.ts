@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import {  colourClass, ceilingOrFoundation, SegmentEnum, powerLevel, ISegment } from './shared-classes-interfaces';
+import {  colourClass, ceilingOrFoundation, SegmentEnum, powerLevel } from '../models/app-enums';
+import { ISegment } from '../models/shared-classes-interfaces';
 
 declare var Snap: any;
 

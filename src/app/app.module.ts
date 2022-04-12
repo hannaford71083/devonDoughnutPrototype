@@ -4,12 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material';
-import { InfoPanelComponent } from './info-panel.component';
-import { DoughnutDiagramComponent } from './doughnut-diagram.component';
-import { TooltipComponent } from './tooltip.component';
-import { SlideNavButtonsComponent } from './slide-nav-buttons.component';
-import { BrakePointObserverComponent } from './brake-point-observer.component';
+import { MaterialModule } from './shared/material';
+import { InfoPanelComponent } from './components/info-panel.component';
+import { DoughnutDiagramComponent } from './components/doughnut-diagram.component';
+import { TooltipComponent } from './shared/components/tooltip.component';
+import { SlideNavButtonsComponent } from './components/slide-nav-buttons.component';
+import { BrakePointObserverComponent } from './shared/components/brake-point-observer.component';
 
 @NgModule({
   declarations: [

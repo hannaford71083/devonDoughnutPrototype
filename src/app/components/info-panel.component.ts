@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { ceilingOrFoundation } from './shared-classes-interfaces';
+import { ceilingOrFoundation } from '../models/app-enums';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { Segment } from './shared-classes-interfaces';
+import { Segment } from '../models/shared-classes-interfaces';
 
 
 @Component({

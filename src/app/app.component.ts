@@ -1,8 +1,7 @@
-import { HighContrastMode } from '@angular/cdk/a11y';
 import { Component } from '@angular/core';
-import {  SegmentEnum, colourClass, ceilingOrFoundation, powerLevel } from './shared-classes-interfaces';
-import { GeneralService } from './general.service';
-import { Segment } from './shared-classes-interfaces';
+import {  SegmentEnum } from './models/app-enums';
+import { GeneralService } from './services/general.service';
+import { Segment } from './models/shared-classes-interfaces';
 
 declare var Snap: any;
 declare var mina: any;    // if you want to use animations of course
