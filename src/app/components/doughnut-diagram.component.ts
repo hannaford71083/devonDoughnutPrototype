@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {  colourClass, ceilingOrFoundation, SegmentEnum, powerLevel } from '../models/app-enums';
-import { ISegment } from '../models/shared-classes-interfaces';
+import { ISegment } from '../models/app-interfaces';
+import { ZoomEnum } from '../models/app-enums'
+import { SvgSegment } from '../models/app-classes';
 
 declare var Snap: any;
 
@@ -97,113 +99,3 @@ export class DoughnutDiagramComponent {
   }
 
 }
-
-
-enum ZoomEnum {
-  zoomIn = 'zoomIn',
-  zoomOut = 'zoomOut'
-} 
-
-export  class SvgSegment implements ISegment {
-  segmentEnum : SegmentEnum;
-  innerOrOuter : ceilingOrFoundation | null;
-  level : powerLevel;
-  cssId : string;
-  callback: any = () => {
-    this.componentReference.clickSegment(this.segmentEnum);
-  };
-  mouseoverCallback: any = () => {
-    this.componentReference.svgHighlightSegment(this.segmentEnum);
-    this.componentReference.highlightSegment(this.segmentEnum);
-  };
-  mouseOutCallback: any = () => {
-    this.componentReference.svgHighlightSegment(null);
-    this.componentReference.highlightSegment(null);
-  };
-  componentReference: any;
-
-  constructor( segmentEnum : SegmentEnum,   innerOrOuter : ceilingOrFoundation | null, level : powerLevel, cssId : string ){
-    this.segmentEnum = segmentEnum;
-    this.innerOrOuter = innerOrOuter;
-    this.level = level;    
-    this.cssId = cssId;
-  }
-
-  bindCallback(){
-    let segment = this.cssId;
-    const s = Snap('#doughnut');
-    s.select(`#${segment}`).click(this.callback).mouseover(this.mouseoverCallback).mouseout(this.mouseOutCallback);
-  }
-
-  setLevel(level : powerLevel){
-    let segment = this.cssId;
-    const s = Snap('#doughnut');
-    let outer = this.innerOrOuter == ceilingOrFoundation.ceiling ? colourClass.red : colourClass.green;
-    let inner = this.innerOrOuter == ceilingOrFoundation.ceiling ? colourClass.green : colourClass.red;  
-
-    try{
-      if(this.level == powerLevel.up1){
-        s.select(`#${segment} .up-1`).addClass(outer);
-      }
-      else if(level == powerLevel.up2){
-        s.select(`#${segment} .up-1`).addClass(outer);
-        s.select(`#${segment} .up-2`).addClass(outer);
-      }
-      else if(level == powerLevel.up3){
-        s.select(`#${segment} .up-1`).addClass(outer);
-        s.select(`#${segment} .up-2`).addClass(outer);
-        s.select(`#${segment} .up-3`).addClass(outer);
-      }
-      else if(level == powerLevel.up4){
-        s.select(`#${segment} .up-1`).addClass(outer);
-        s.select(`#${segment} .up-2`).addClass(outer);
-        s.select(`#${segment} .up-3`).addClass(outer);
-        s.select(`#${segment} .up-4`).addClass(outer);
-      }
-      else if(level == powerLevel.up5){
-        s.select(`#${segment} .up-1`).addClass(outer);
-        s.select(`#${segment} .up-2`).addClass(outer);
-        s.select(`#${segment} .up-3`).addClass(outer);
-        s.select(`#${segment} .up-4`).addClass(outer);
-        s.select(`#${segment} .up-5`).addClass(outer);
-      }
-      else if(level == powerLevel.threshold){
-        s.select(`#${segment} .threshold`).addClass(colourClass.orange);
-      }
-      else if(level == powerLevel.down1){
-        s.select(`#${segment} .down-1`).addClass(inner);
-      }
-      else if(level == powerLevel.down2){
-        s.select(`#${segment} .down-1`).addClass(inner);
-        s.select(`#${segment} .down-2`).addClass(inner);
-      }
-      else if(level == powerLevel.down3){
-        s.select(`#${segment} .down-1`).addClass(inner);
-        s.select(`#${segment} .down-2`).addClass(inner);
-        s.select(`#${segment} .down-3`).addClass(inner);
-      }
-      else if(level == powerLevel.down4){
-        s.select(`#${segment} .down-1`).addClass(inner);
-        s.select(`#${segment} .down-2`).addClass(inner);
-        s.select(`#${segment} .down-3`).addClass(inner);
-        s.select(`#${segment} .down-4`).addClass(inner);
-      }
-      else if(level == powerLevel.down5){
-        s.select(`#${segment} .down-1`).addClass(inner);
-        s.select(`#${segment} .down-2`).addClass(inner);
-        s.select(`#${segment} .down-3`).addClass(inner);
-        s.select(`#${segment} .down-4`).addClass(inner);
-        s.select(`#${segment} .down-5`).addClass(inner);
-      }
-
-    }
-    catch(e){
-      console.log(e);
-    }
-  }
-
-  
-
-}
-
-

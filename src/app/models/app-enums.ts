@@ -57,3 +57,8 @@ export enum powerLevel {
     XLarge = 'XLarge',
     Unknown = 'Unknown',
   }
+
+export enum ZoomEnum {
+    zoomIn = 'zoomIn',
+    zoomOut = 'zoomOut'
+  } 

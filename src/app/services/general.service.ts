@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ceilingOrFoundation, powerLevel, SegmentEnum } from '../models/app-enums';
-import { Segment } from '../models/shared-classes-interfaces';
+import { Segment } from '../models/app-classes';
 
 @Injectable({
   providedIn: 'root'

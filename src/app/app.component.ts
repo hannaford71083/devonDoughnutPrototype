@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {  SegmentEnum } from './models/app-enums';
 import { GeneralService } from './services/general.service';
-import { Segment } from './models/shared-classes-interfaces';
+import { Segment } from './models/app-classes';
 
 declare var Snap: any;
 declare var mina: any;    // if you want to use animations of course
