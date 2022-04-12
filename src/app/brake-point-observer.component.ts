@@ -6,8 +6,8 @@ import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'brake-point-observer',
-  templateUrl: './brake-point-observer.component.html',
-  styleUrls: ['./brake-point-observer.component.scss']
+  template: ``,
+  styles:[``]
 })
 export class BrakePointObserverComponent implements OnDestroy {
   @Output() breakpointChanged = new EventEmitter<string>();

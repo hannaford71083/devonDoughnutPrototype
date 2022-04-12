@@ -1,0 +1,31 @@
+tooltip{
+    position: absolute;
+    display: inline;
+    right: 0px;
+    top: 0px;
+    width: 350px;
+}
+.mat-horizontal-stepper-header-container{
+    display: none !important;
+}
+.header-label{
+    font-weight: 400;
+    font-size: 1.8em;
+    position: relative;
+    top: 5px;
+}
+.header-heading{
+    font-size: 2.2em;
+}
+.back-button {
+    margin-top: 8px;
+}
+.indicator-box.grey-box{
+    min-height: 70px;
+}
+.ceiling-foundation-container{
+    padding: 0px ​0px 30px 0px;
+}
+mat-stepper {
+    min-height: 230px;
+}

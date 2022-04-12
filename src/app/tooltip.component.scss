@@ -4,3 +4,38 @@
     top: -15px;
     left: 20px;
 }
+
+tooltip{
+    position: absolute;
+    display: inline;
+    right: 0px;
+    top: 0px;
+    width: 350px;
+}
+
+.tooltip-container{
+    position: relative;
+    width: 350px;
+}
+.tooltip-trigger{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1em;
+    color: grey;
+    font-style: italic;
+    cursor: pointer;
+}
+.tooltip-message{
+    position: absolute;
+    top: 40px;
+    right: 15px;
+    font-size: 1em;
+    color: grey;
+    font-style: italic;
+    cursor: pointer;
+    background-color: #fdebd0;
+    box-shadow: 5px 5px 6px -8px #000000;
+    padding: 10px;;
+    z-index: 1;
+}

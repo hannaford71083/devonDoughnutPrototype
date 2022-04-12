@@ -1,0 +1,14 @@
+.button-container button{
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.button-container {
+    margin-left: 25px;
+    padding-top: 5px;
+    transition: 1s transform;
+}
+@media only screen and (max-width: 960px) {
+    button {
+        font-size: 12px !important;
+    }
+}
